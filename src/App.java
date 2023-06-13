@@ -1,15 +1,13 @@
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException{
-       // System.out.println("Hello, Fabio!");
+       
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Posto> listaPostos;
