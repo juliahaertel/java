@@ -11,15 +11,18 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Posto> listaPostos;
+        String bairro;
+        String produto;
 
         int opcao;
     
         do {
-            System.out.println("----- MENU -----");
+            System.out.println("__________ MENU __________");
             System.out.println("1. Listar todos os postos");
             System.out.println("2. Pesquisar postos por bairro");
             System.out.println("3. Pesquisar postos por tipo de produto");
             System.out.println("4. Sair");
+            System.out.println();
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
     
@@ -27,17 +30,52 @@ public class App {
                 case 1:
 
                     listaPostos = (ArrayList<Posto>)listarPostos("C:\\Users\\juuli\\java\\gasolina_etanol.csv");
+                    
+                    System.out.println();
+                    System.out.println("__________ LISTA DE POSTOS __________");
 
                     for( Posto p : listaPostos){
-                        System.out.println(p.getNomePosto());
+
+                        //System.out.println(p); //print do local memoria - teste
+                        System.out.println();
+                        System.out.println("Nome do posto: " + p.getNomePosto());
+                        System.out.println("Bairro: " + p.getBairro());
+                        System.out.println("Valor de venda: " + p.getValorVenda());
+                        System.out.println("Bandeira: " + p.getBandeira());
+                        System.out.println("Tipo do produto: " + p.getTipoProduto());
                     }
+
+        
                     break;
                 case 2:
+
+                    Scanner scannerBairro = new Scanner(System.in);
+
+                    System.out.print("Digite o bairro: ");
+                    bairro = scannerBairro.nextLine();
                     
-                    pesquisarPorBairro(null);
+ 
+
+                    scannerBairro.close();
+
+                    pesquisarPorBairro(bairro);
+                 scanner.nextInt();
+                    
                     break;
                 case 3:
-                    pesquisarPorTipoProduto();
+                   
+
+                    Scanner scannerTipo = new Scanner(System.in);
+
+                    System.out.print("Digite o tipo do produto: ");
+                    produto = scannerTipo.nextLine();
+                    
+ 
+
+                    scannerTipo.close();
+
+                    pesquisarPorTipoProduto(produto);
+
                     break;
                 case 4:
                     System.out.println("Saindo do programa...");
@@ -84,11 +122,46 @@ public class App {
             
         return postos;
 }
-    private static void pesquisarPorTipoProduto() {
+    private static void pesquisarPorBairro(String bairro) throws FileNotFoundException, IOException {
+        
+        ArrayList<Posto> listaPostos = (ArrayList<Posto>)listarPostos("C:\\Users\\juuli\\java\\gasolina_etanol.csv");
+
+        System.out.println();
+        System.out.println("----- POSTOS NO BAIRRO " + bairro.toUpperCase() + " -----");
+         
+        for (Posto p : listaPostos) {
+             if (p.getBairro().equalsIgnoreCase(bairro)) {
+                System.out.println();
+                System.out.println("Nome do posto: " + p.getNomePosto());
+                System.out.println("Bairro: " + p.getBairro());
+                System.out.println("Valor de venda: " + p.getValorVenda());
+                System.out.println("Bandeira: " + p.getBandeira());
+                System.out.println("Tipo do produto: " + p.getTipoProduto());
+        }
+    
+    }
+    }
+    private static void pesquisarPorTipoProduto(String produto) throws FileNotFoundException, IOException {
+
+          ArrayList<Posto> listaPostos = (ArrayList<Posto>)listarPostos("C:\\Users\\juuli\\java\\gasolina_etanol.csv");
+
+        System.out.println();
+        System.out.println("----- POSTOS COM " + produto.toUpperCase() + " -----");
+         
+        for (Posto p : listaPostos) {
+             if (p.getTipoProduto().equalsIgnoreCase(produto)) {
+                System.out.println();
+                System.out.println("Nome do posto: " + p.getNomePosto());
+                System.out.println("Bairro: " + p.getBairro());
+                System.out.println("Valor de venda: " + p.getValorVenda());
+                System.out.println("Bandeira: " + p.getBandeira());
+                System.out.println("Tipo do produto: " + p.getTipoProduto());
+        }
+    
+    }
     }
 
-    private static void pesquisarPorBairro(String bairro) {
-    }
+    
 
     
 
