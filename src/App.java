@@ -51,7 +51,7 @@ public class App {
 
                     Scanner scannerBairro = new Scanner(System.in);
 
-                    System.out.print("Digite o bairro: ");
+                    System.out.print("\nDigite o bairro: \n");
                     bairro = scannerBairro.nextLine();
                     
  
@@ -67,7 +67,7 @@ public class App {
 
                     Scanner scannerTipo = new Scanner(System.in);
 
-                    System.out.print("Digite o tipo do produto: ");
+                    System.out.print("\nDigite o tipo do produto: \n");
                     produto = scannerTipo.nextLine();
                     
  
