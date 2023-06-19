@@ -25,6 +25,7 @@ public class App {
             System.out.println();
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
+            scanner.nextInt();
     
             switch (opcao) {
                 case 1:
@@ -59,7 +60,7 @@ public class App {
                     scannerBairro.close();
 
                     pesquisarPorBairro(bairro);
-                 scanner.nextInt();
+                 
                     
                     break;
                 case 3:
